@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:10.1-alpine
+    environment:
+      POSTGRES_USER: forward
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: forward
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
+

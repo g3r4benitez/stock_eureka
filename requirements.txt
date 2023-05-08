@@ -1,0 +1,7 @@
+dependency-injector==4.37.0
+fastapi==0.95.0
+mock==4.0.3
+psycopg2-binary==2.9.2
+pydantic==1.8.2
+uvicorn==0.15.0
+
