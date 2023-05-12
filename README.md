@@ -46,8 +46,7 @@ alembic upgrade "migration_to_apply"
 python3 -m uvicorn app.main:app --reload --port 9009
 ```
 
-2. Go to [http://localhost:9009/docs](http://localhost:8000/docs).
-
-
-
+### API Documentation
+You can explore the API documentation and try it in
+[http://localhost:9009/docs](http://localhost:9009/docs).
 

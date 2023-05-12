@@ -1,13 +1,16 @@
-from fastapi import APIRouter, Depends, Security
+from fastapi import APIRouter, Depends
 from dependency_injector.wiring import inject, Provide
 from starlette import status
 from ratelimit.exception import RateLimitException
 
+from fastapi.security.api_key import APIKey
+
 from app.services.alpha_service import AlphaService
 from app.core.containers import ContainerService
-from app.core.security.authentication import auth_required
 from app.exceptions.general_exeptions import TooManyRequestException, BadRequestException
 from app.core.config import SIMBOLS
+from app.core.security.authentication import validate_api_key
+
 
 router = APIRouter()
 
@@ -19,16 +22,15 @@ def validate_simbol(simbol: str):
 
 
 @router.get(
-    "/{simbol}/{apikey}",
+    "/{simbol}",
     name="get_stock_information",
     status_code=status.HTTP_200_OK,
 )
-@auth_required
 @inject
 def get_stock(
         alpha_service: AlphaService = Depends(Provide[ContainerService.alpha_service]),
         simbol: str = Depends(validate_simbol),
-        apikey: str = None,
+        api_key: APIKey = Depends(validate_api_key),
 ):
     try:
         return alpha_service.get_stock(simbol)

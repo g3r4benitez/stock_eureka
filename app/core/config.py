@@ -9,6 +9,8 @@ APP_VERSION = "0.0.1"
 APP_NAME = "APP_name"
 API_PREFIX = "/api"
 
+API_KEY_NAME = "access_token"
+
 # Env vars
 IS_DEBUG: bool = _config("IS_DEBUG", cast=bool, default=False)
 
