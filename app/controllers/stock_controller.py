@@ -3,7 +3,6 @@ from dependency_injector.wiring import inject, Provide
 from starlette import status
 from ratelimit.exception import RateLimitException
 
-
 from app.services.alpha_service import AlphaService
 from app.core.containers import ContainerService
 from app.core.security.authentication import auth_required
@@ -11,6 +10,7 @@ from app.exceptions.general_exeptions import TooManyRequestException, BadRequest
 from app.core.config import SIMBOLS
 
 router = APIRouter()
+
 
 def validate_simbol(simbol: str):
     if simbol not in SIMBOLS:
