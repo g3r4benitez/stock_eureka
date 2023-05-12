@@ -5,12 +5,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn app.main:app --host 0.0.0.0 --port 9009 --reload
     ports:
-      - "8000:8000"
+      - "9009:9009"
     environment:
       - SQLITE_PATH=/sql_app.db
     volumes:
       - .:/code
       - "./data/sqlite.db:/sql_app.db"
-   

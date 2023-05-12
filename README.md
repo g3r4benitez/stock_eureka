@@ -37,8 +37,13 @@ alembic upgrade "migration_to_apply"
 
 
 ## Project
+### Run using docker
+run the docker command and explore and try the api in the port 9009
+```sh
+docker-compose up
+```
 
-### Run It
+### Run It Locally
 
 1. Start your app with:
 
