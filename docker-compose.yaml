@@ -11,16 +11,14 @@ services:
     volumes:
       - .:/code
     depends_on:
-      - postgres
+      - db
 
-  postgres:
-    image: postgres:10.1-alpine
-    environment:
-      POSTGRES_USER: forward
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: forward
+  db:
+    image: postgres:11
     ports:
       - "5432:5432"
-    volumes:
-      - ./volumes/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=test_db
 

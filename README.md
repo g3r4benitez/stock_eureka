@@ -16,6 +16,19 @@ pip install -r requirements.txt
 1. Duplicate the `.env.example` file and rename it to `.env`
 2. Ask a teammate for the .env file
 
+## Run migration for fresh database
+### Alembic y SqlAlchemy
+#### Create migrations
+```
+alembic init alembic
+alembic revision --autogenerate -m "add contact and deals"
+```
+ 
+### Apply migrations 
+```
+alembic upgrade head
+alembic upgrade "migration_to_apply"
+```
 
 
 ## Project

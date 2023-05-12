@@ -12,21 +12,16 @@ API_PREFIX = "/api"
 # Env vars
 IS_DEBUG: bool = _config("IS_DEBUG", cast=bool, default=False)
 
+DB_URL: str = _config("DB_URL", cast=str)
 
-def get_celery_broker_url():
-    """Generate the broker url from the environment."""
-    protocol = _config("CELERY_BROKER_PROTOCOL", cast=str, default="")
-    username = _config("CELERY_BROKER_USERNAME", default="")
-    password = _config("CELERY_BROKER_PASSWORD", cast=str, default="")
-    host = _config("CELERY_BROKER_HOST", cast=str, default="")
-    port = _config("CELERY_BROKER_PORT", cast=str, default="")
-    db = _config("CELERY_BROKER_DB", cast=str, default="")
-    return f"{protocol}://{username}:{password}@{host}:{port}/{db}"
+ALPHA_URL: str = _config("ALPHA_URL", cast=str)
+ALPHA_APIKEY: str = _config("ALPHA_APIKEY", cast=str)
+SIMBOLS = ("META", "AAPL", "MSFT", "GOOGL", "AMZN")
 
-
-# Celery
-CELERY_BROKER_URL: str = get_celery_broker_url()
-
+REQUEST_PERSECOND = _config("REQUEST_PERSECOND", cast=int, default=1)
+REQUEST_PERMINUTE = _config("REQUEST_PERMINUTE", cast=int, default=5)
+ONE_SECOND = 1
+ONE_MINUTE = 60
 
 def get_connection():
 

@@ -1,8 +1,8 @@
 from dependency_injector import containers, providers
-from app.services.dummy_service import DummyService
+from app.services.alpha_service import AlphaService
 
 
 class ContainerService(containers.DeclarativeContainer):
-    dummy_service = providers.Singleton(
-        DummyService
+    alpha_service = providers.Singleton(
+        AlphaService
     )
