@@ -1,5 +1,10 @@
-# Stock Options
-An API to    
+# Eureka Labs Challenge - Stock Market API Service
+This is an API create to resolve the challenge proposed in the interview process of Eureka Labs
+
+## About Me
+I'm Gerardo Benitez (gerardobenitez@gmail.com), I'm a software enginnering from Buenos Aires, Argentina. 
+
+# Solution: 
 
 ## Requirements
 
